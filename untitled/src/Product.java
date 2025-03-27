@@ -50,7 +50,7 @@ public class Product {
     }
 
     public String displayInfo() {
-        return toString;
+        return toString();
     }
 
 }

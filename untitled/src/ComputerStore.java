@@ -64,7 +64,7 @@ public class ComputerStore {
             int qty = orderQuantities[i];
             p.setStockQuantity(p.getStockQuantity() - qty);
         }
-        System.out.println("Stock updated after order.");
+        System.out.println("Stock updated automatically.");
     }
 
     public void changeOrderStatus(int orderId, String newStatus){
@@ -80,7 +80,24 @@ public class ComputerStore {
     }
 
     public String displayProductsInCategory(String category){
-        return null;
+        String result = "";
+        for (int i = 0; i < productCount; i++) {
+            if(products[i].getCategory().equalsIgnoreCase(category)) {
+                result += products[i].displayInfo() + "\n";
+            }
+        }
+        System.out.println("Products in category " + category + ":\n" + result);
+        return result;
+    }
+
+
+    public void displayCustomerOrders(int customerId){
+        System.out.println("Orders for customer id " + customerId + ":");
+        for (int i = 0; i < orderCount; i++) {
+            if(orders[i].getCustomer().getId() == customerId){
+                System.out.println(orders[i].displayDetails());
+            }
+        }
     }
 
 }

@@ -1,12 +1,28 @@
 import java.util.Arrays;
 
 public class Order {
+    private static int nextId = 1;
     private int id;
     private Customer customer;
     private Product[] products;
     private int[] quantities;
     private String orderDate;
     private String Status;
+
+
+
+    public Order(Customer customer, Product[] products, int[] quantities) {
+        this.id = nextId++;
+        this.customer = customer;
+        this.products = products;
+        this.quantities = quantities;
+        this.orderDate = java.time.LocalDate.now().toString();
+        this.status = "New";
+    }
+
+
+
+
     public int getId() {
         return id;
     }
@@ -57,15 +73,26 @@ public class Order {
 
 
 
-    public int calculateTotalValue(){}
+    public int calculateTotalValue(){
+        int total = 0;
+        for (int i = 0; i < products.length; i++) {
+            total += products[i].getPrice() * quantities[i];
+        }
+        return total;
+    }
 
 
 
 
     public void applyDiscount(){
         if (customer.isLoyalCustomer()){
-            double newPrice = product.getPrice() * 0.90;
-            product.setPrice(newPrice);
+            for (int i = 0; i< products.length; i++){
+                double newPrice = product.getPrice() * 0.90;
+                products[i].setPrice(newPrice);
+            }
+            System.out.println("Discount applied to loyal customer");
+
+
         }
     }
 
