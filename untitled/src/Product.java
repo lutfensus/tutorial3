@@ -45,11 +45,12 @@ public class Product {
         this.stockQuantity = stockQuantity;
     }
 
+    public String toString() {
+        return "Product{name='" + name + "', price=" + price + "}";
+    }
 
     public String displayInfo() {
-        public String toString() {
-            return "Product{name='" + name + "', price=" + price + "}";
-        }
-
+        return toString;
     }
+
 }

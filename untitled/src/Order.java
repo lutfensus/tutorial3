@@ -63,7 +63,7 @@ public class Order {
 
 
     public void applyDiscount(){
-        if (customer.isLoyalCustomer(){
+        if (customer.isLoyalCustomer()){
             double newPrice = product.getPrice() * 0.90;
             product.setPrice(newPrice);
         }

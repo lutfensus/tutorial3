@@ -44,14 +44,16 @@ public class Main {
         Product[] orderProducts1 = {product1, product2};
         int[] orderQuantities1 = {1, 1};
         Order order1 = store.createOrder(customer1, orderProducts1, orderQuantities1);
-        order1.applyDiscount(); // Apply discount for a loyal customer
+        order1.applyDiscount();
+// Apply discount for a loyal customer
         store.updateStockAfterOrder(order1);
 // Display information
         System.out.println("Order details:");
         order1.displayDetails();
         System.out.println("\nStock levels after the order:");
         store.displayProductsInCategory("Laptop");
-        store.displayProductsInCategory("Mouse");// Change order status
+        store.displayProductsInCategory("Mouse");
+// Change order status
         store.changeOrderStatus(order1.getId(), "Completed");
         System.out.println("\nOrder status after update:");
         order1.displayDetails();
