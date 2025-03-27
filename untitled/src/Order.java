@@ -7,7 +7,7 @@ public class Order {
     private Product[] products;
     private int[] quantities;
     private String orderDate;
-    private String Status;
+    private String status;
 
 
 
@@ -64,11 +64,11 @@ public class Order {
     }
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String status) {
-        Status = status;
+        this.status = status;
     }
 
 
@@ -87,7 +87,7 @@ public class Order {
     public void applyDiscount(){
         if (customer.isLoyalCustomer()){
             for (int i = 0; i< products.length; i++){
-                double newPrice = product.getPrice() * 0.90;
+                double newPrice = products.getPrice() * 0.90;
                 products[i].setPrice(newPrice);
             }
             System.out.println("Discount applied to loyal customer");
@@ -99,7 +99,13 @@ public class Order {
 
 
     public String displayDetails(){
-        return Arrays.toString(products) + Status + customer + Arrays.toString(quantities) + orderDate;
+        return "Order ID: " + id + "\n" +
+                "Customer: " + customer.displayInfo() + "\n" +
+                "Products: " + Arrays.toString(products) + "\n" +
+                "Quantities: " + Arrays.toString(quantities) + "\n" +
+                "Order Date: " + orderDate + "\n" +
+                "Status: " + status + "\n" +
+                "Total Value: $" + calculateTotalValue();
     }
 
 
