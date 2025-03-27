@@ -47,9 +47,9 @@ public class Product {
 
 
     public String displayInfo() {
-
-        return name+id+price+category+stockQuantity;
-
+        public String toString() {
+            return "Product{name='" + name + "', price=" + price + "}";
+        }
 
     }
 }

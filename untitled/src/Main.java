@@ -2,6 +2,7 @@ public class Main {
     public static void main(String[] args) {
 // Create an instance of the computer store
         ComputerStore store = new ComputerStore();
+        System.out.println();
 // Add products
         Product product1 = new Product();
         product1.setId(1);
