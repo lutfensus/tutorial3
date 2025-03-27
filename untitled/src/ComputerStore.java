@@ -52,15 +52,30 @@ public class ComputerStore {
             orders[orderCount] = order;
             orderCount++;
         } else {
-            System.out.println("Cannot create order: Order list is full.");
+            System.out.println("Cannot create order: List is full.");
         }
         return order;
-    }
+    }  // SMT WEIRD LOOK AGAIN!
     public void updateStockAfterOrder(Order order){
-
+        Product[] orderProducts = order.getProducts();
+        int[] orderQuantities = order.getQuantities();
+        for (int i = 0; i < orderProducts.length; i++) {
+            Product p = orderProducts[i];
+            int qty = orderQuantities[i];
+            p.setStockQuantity(p.getStockQuantity() - qty);
+        }
+        System.out.println("Stock updated after order.");
     }
 
-    public void hangeOrderStatus(int orderId, String newStatus){
+    public void changeOrderStatus(int orderId, String newStatus){
+        for (int i = 0; i < orderCount; i++) {
+            if(orders[i].getId() == orderId) {
+                orders[i].setStatus(newStatus);
+                System.out.println("Order status changed for order id " + orderId);
+                return;
+            }
+        }
+        System.out.println("Order with id " + orderId + " not found.");
 
     }
 
