@@ -47,7 +47,7 @@ public class ComputerStore {
         }
     }
     public Order createOrder(Customer customer, Product[] products, int[] quantities){
-        Order order = new Order(customer, orderProducts, quantities);
+        Order order = new Order(customer, products, quantities);
         if(orderCount < orders.length) {
             orders[orderCount] = order;
             orderCount++;

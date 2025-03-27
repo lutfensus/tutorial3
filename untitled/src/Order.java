@@ -85,9 +85,9 @@ public class Order {
 
 
     public void applyDiscount(){
-        if (customer.isLoyalCustomer()){
-            for (int i = 0; i< products.length; i++){
-                double newPrice = products.getPrice() * 0.90;
+        if (customer.isLoyalCustomer()) {
+            for (int i = 0; i < products.length; i++) {
+                double newPrice = products[i].getPrice() * 0.90;
                 products[i].setPrice(newPrice);
             }
             System.out.println("Discount applied to loyal customer");
